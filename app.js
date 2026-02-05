@@ -156,7 +156,8 @@ function renderInsightsPage(page) {
     const pageItems = insightsData.slice(start, end);
 
     pageItems.forEach(item => {
-        const date = item['수정일'] || item['작성일'] || '';
+        const createdDate = item['작성일'] || '';
+        const updatedDate = item['수정일'] || createdDate || '';
         const title = item['제목'] || '제목 없음';
         const body = item['본문'] || '';
         const attachmentName = item['첨부파일명'] || '';
@@ -175,12 +176,14 @@ function renderInsightsPage(page) {
         card.innerHTML = `
             <button class="insight-header" type="button">
                 <div class="insight-header-main">
-                    <div class="insight-date">${date}</div>
                     <h3>${title}</h3>
                 </div>
+                <div class="insight-date">${updatedDate}</div>
                 <span class="insight-toggle">›</span>
             </button>
             <div class="insight-body">
+                <p class="insight-meta">최초 생성일: ${createdDate || '-'}</p>
+                <p class="insight-meta">마지막 수정일: ${updatedDate || '-'}</p>
                 ${body ? `<p>${body}</p>` : ''}
                 ${attachmentHtml}
             </div>
