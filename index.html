@@ -17,7 +17,7 @@
                 <li><a href="#business">사업영역</a></li>
                 <li><a href="#team">구성원</a></li>
                 <li><a href="#insights">인사이트</a></li>
-                <li><a href="#upload">자료업로드</a></li>
+                <li><a href="#location">위치</a></li>
                 <li><a href="#contact">문의</a></li>
             </ul>
             <button class="nav-toggle" id="navToggle" aria-label="메뉴 토글">
@@ -34,7 +34,7 @@
             <h1 class="hero-title">우원파트너스</h1>
             <p class="hero-subtitle">기술과 파트너십으로 가치를 창조합니다</p>
             <div class="hero-buttons">
-                <a href="#upload" class="btn btn-primary">자료 업로드</a>
+                <a href="#location" class="btn btn-primary">위치 보기</a>
                 <a href="#contact" class="btn btn-secondary">문의하기</a>
             </div>
         </div>
@@ -191,29 +191,25 @@
         </div>
     </section>
 
-    <!-- Upload Section -->
-    <section id="upload" class="upload">
+    <!-- Location Section -->
+    <section id="location" class="location">
         <div class="container">
-            <h2 class="section-title">자료 업로드</h2>
-            <div class="upload-content">
-                <p class="upload-description">
-                    필요한 자료를 Google Drive에 업로드해 주세요. 업로드된 자료는 관리자가 확인 후 처리됩니다.
+            <h2 class="section-title">위치</h2>
+            <div class="location-content">
+                <p class="location-description">
+                    우원파트너스의 사무실 위치입니다. 아래 지도를 참고해 방문해 주세요.
                 </p>
-                <div class="upload-notice">
-                    <p>⚠️ 안내사항</p>
-                    <ul>
-                        <li>Google Drive로 이동합니다.</li>
-                        <li>Google 계정 로그인이 필요할 수 있습니다.</li>
-                        <li>업로드된 자료는 관리자가 확인합니다.</li>
-                    </ul>
+                <div class="map-container">
+                    <iframe
+                        src="MAP_URL_HERE"
+                        width="100%"
+                        height="450"
+                        style="border:0;"
+                        allowfullscreen=""
+                        loading="lazy"
+                        referrerpolicy="no-referrer-when-downgrade">
+                    </iframe>
                 </div>
-                <a
-                    class="btn btn-primary btn-large"
-                    href="DRIVE_UPLOAD_URL_HERE"
-                    target="_blank"
-                    rel="noopener">
-                    자료 업로드하기
-                </a>
             </div>
         </div>
     </section>

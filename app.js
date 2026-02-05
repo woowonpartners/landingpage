@@ -159,16 +159,39 @@ function renderInsightsPage(page) {
         const date = item['수정일'] || item['작성일'] || '';
         const title = item['제목'] || '제목 없음';
         const body = item['본문'] || '';
-        const attachment = item['첨부파일'] || '';
+        const attachmentName = item['첨부파일명'] || '';
+        const attachmentUrl = item['첨부파일'] || '';
+
+        let attachmentHtml = '';
+        if (attachmentUrl) {
+            const linkText = attachmentName || '첨부파일 다운로드';
+            attachmentHtml = `<p class="insight-attachment">첨부파일: <a href="${attachmentUrl}" target="_blank" rel="noopener">${linkText}</a></p>`;
+        } else if (attachmentName) {
+            attachmentHtml = `<p class="insight-attachment">첨부파일: ${attachmentName}</p>`;
+        }
 
         const card = document.createElement('div');
         card.className = 'insight-card';
         card.innerHTML = `
-            <div class="insight-date">${date}</div>
-            <h3>${title}</h3>
-            <p>${body}</p>
-            ${attachment ? `<p class="insight-attachment">첨부 안내: ${attachment}</p>` : ''}
+            <button class="insight-header" type="button">
+                <div class="insight-header-main">
+                    <div class="insight-date">${date}</div>
+                    <h3>${title}</h3>
+                </div>
+                <span class="insight-toggle">›</span>
+            </button>
+            <div class="insight-body">
+                ${body ? `<p>${body}</p>` : ''}
+                ${attachmentHtml}
+            </div>
         `;
+
+        const header = card.querySelector('.insight-header');
+        if (header) {
+            header.addEventListener('click', () => {
+                card.classList.toggle('open');
+            });
+        }
 
         listEl.appendChild(card);
     });
